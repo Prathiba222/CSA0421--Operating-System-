@@ -1,0 +1,22 @@
+# Single Level Directory
+
+directory = []
+
+def create_file(name):
+    if name in directory:
+        print("File already exists")
+    else:
+        directory.append(name)
+        print("File created:", name)
+
+def delete_file(name):
+    if name in directory:
+        directory.remove(name)
+        print("File deleted:", name)
+    else:
+        print("File not found")
+
+create_file("data.txt")
+create_file("record.doc")
+delete_file("data.txt")
+print("Directory:", directory)
