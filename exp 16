@@ -1,0 +1,19 @@
+# First Fit Memory Allocation
+
+blocks = [100, 500, 200, 300, 600]       # memory blocks
+process = [212, 417, 112, 426]           # process sizes
+allocation = [-1] * len(process)         # store block index
+
+for i in range(len(process)):
+    for j in range(len(blocks)):
+        if blocks[j] >= process[i]:      # first block large enough
+            allocation[i] = j
+            blocks[j] -= process[i]      # reduce block size
+            break
+
+print("Process No. | Process Size | Block Allocated")
+for i in range(len(process)):
+    if allocation[i] != -1:
+        print(i+1, " " * 10, process[i], " " * 10, allocation[i] + 1)
+    else:
+        print(i+1, " " * 10, process[i], " " * 10, "Not Allocated")
