@@ -1,0 +1,29 @@
+# SCAN Disk Scheduling
+
+requests = [176, 79, 34, 60, 92, 11, 41, 114]
+head = 50
+disk_end = 199
+direction = "right"
+
+left = [r for r in requests if r < head]
+right = [r for r in requests if r > head]
+
+left.sort()
+right.sort()
+
+sequence = []
+total = 0
+current = head
+
+if direction == "right":
+    order = right + [disk_end] + left[::-1]
+else:
+    order = left + [0] + right[::-1]
+
+for r in order:
+    total += abs(current - r)
+    current = r
+    sequence.append(r)
+
+print("Servicing Order:", sequence)
+print("Total Head Movement:", total)
