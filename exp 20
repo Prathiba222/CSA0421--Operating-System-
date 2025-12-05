@@ -1,0 +1,16 @@
+# Two Level Directory (User Wise)
+
+directory = {}   # username → file list
+
+def create_user(user):
+    directory[user] = []
+
+def add_file(user, file):
+    directory[user].append(file)
+
+create_user("Alice")
+create_user("Bob")
+add_file("Alice", "a1.txt")
+add_file("Alice", "notes.pdf")
+add_file("Bob", "project.doc")
+print(directory)
