@@ -1,0 +1,15 @@
+# FCFS Disk Scheduling
+
+requests = [98, 183, 37, 122, 14, 124, 65, 67]  # I/O requests
+head = 53                                       # initial head position
+total = 0
+current = head
+
+print("Request Order:", requests)
+
+for r in requests:
+    total += abs(current - r)   # distance to next request
+    current = r
+
+print("Total Head Movement:", total)
+print("Average Head Movement:", total / len(requests))
